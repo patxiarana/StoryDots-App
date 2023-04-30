@@ -1,6 +1,10 @@
 import  {Router} from 'express';
 import { getProducts, createProducts,updateProducts,deleteProducts } from '../controllers/product.controllers.js';
-
+import express from "express"
+//cors config
+import cors from "cors"
+// cors module
+const app = express()
 
 const router = Router()
 
