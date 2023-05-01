@@ -1,10 +1,20 @@
 import './Card.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {useGetProductQuery} from './api/apiSlice';
+import { Modal } from './modal';
 
 function App() {
 
-  const {data,error, isLoading} = useGetProductQuery();
+/// Modal Window init
+const [show, setShow] = useState(false)
+// Molda window finish ////
+
+
+
+
+ //// T
+
+ const {data,error, isLoading} = useGetProductQuery();
   console.log(data)
  if (isLoading) {
   return <div>Loading...</div>
@@ -32,9 +42,9 @@ if (data) {
     <React.Fragment>
     <nav className='nav'>
       <button>Cerrar Sesion</button>
-      <button>Cargar producto</button>
+      <button onClick={() => setShow(true)}>Cargar producto</button>
+      <Modal onClose={() => setShow(false) } show={show}/>
     </nav>
-
     <div className='Card-conteiner'>
       { data.map(e =>(
         <div key={e.id}>
@@ -45,7 +55,7 @@ if (data) {
          <p>{e.description}</p>
          <p className="price">${e.price}</p>
          <button className="edit-button">Edit</button>
-         <button className="delete-button">Delete</button>
+         <button className="delete-button" onClick={ () => {console.log(e.id)}}>Delete</button>
        </div>
      </div>
      </div>
