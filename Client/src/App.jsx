@@ -1,21 +1,31 @@
 import './Card.css';
 import React, { useState } from 'react';
-import {useGetProductQuery} from './api/apiSlice';
+import {useGetProductQuery, useDeleteProductMutation} from './api/apiSlice';
 import { Modal } from './modal';
-
+import { EditModal } from './ModalEdit';
 function App() {
 
 /// Modal Window init
 const [show, setShow] = useState(false)
+const [showEdit, setShowEdit] = useState(false)
+const [modalProps, setModalProps] = useState({
+  id:0,
+  name:'',
+  price:0,
+  descirption:'',
+  img_url:'',
+})
+console.log(modalProps)
+
+
 // Molda window finish ////
 
 
-
-
- //// T
-
  const {data,error, isLoading} = useGetProductQuery();
-  console.log(data)
+const [deleteProduct] = useDeleteProductMutation()
+
+
+
  if (isLoading) {
   return <div>Loading...</div>
 }
@@ -54,8 +64,11 @@ if (data) {
          <h2>{e.name}</h2>
          <p>{e.description}</p>
          <p className="price">${e.price}</p>
-         <button className="edit-button">Edit</button>
-         <button className="delete-button" onClick={ () => {console.log(e.id)}}>Delete</button>
+        <button className="edit-button" onClick={() =>{setShowEdit(true) ;  setModalProps({id:e.id, name:e.name,img_url:e.img_url,description:e.description,price:e.price})}}>Edit</button>
+        <EditModal onClose={() => setShowEdit(false) } showEdit={showEdit} 
+        propucts={modalProps}
+        />
+         <button className="delete-button" onClick={ () => {deleteProduct(e.id)}}>Delete</button>
        </div>
      </div>
      </div>
