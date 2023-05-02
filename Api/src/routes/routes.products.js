@@ -1,5 +1,6 @@
 import  {Router} from 'express';
 import { getProducts, createProducts,updateProducts,deleteProducts } from '../controllers/product.controllers.js';
+import { Signin,signUp } from '../controllers/Auth.controllers.js';
 import express from "express"
 //cors config
 import cors from "cors"
@@ -15,7 +16,9 @@ router.delete('/products/:id',deleteProducts)
 
 
 
-
+//users routes
+router.post('/user/signUp', signUp)
+router.post('/user/Signin', Signin)
 
 
 
