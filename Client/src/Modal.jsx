@@ -16,7 +16,7 @@ export const Modal = props => {
             <ProductForm/>
            </div>
            <div className="modal-footer">
-            <button  onClick={props.onClose}  className="button">Close</button>
+            <button  onClick={props.onClose}  className="button">Cerrar</button>
            </div>
         </div>
         </div>
