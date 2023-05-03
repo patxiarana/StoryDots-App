@@ -1,6 +1,6 @@
 import  React  from 'react';
 import "./Paginated.css"
-
+import {Link} from 'react-router-dom'
 
 
 export default function Paginated (props) {
@@ -25,7 +25,7 @@ return (
            </li> 
          ))}
      </ul>
-     <button className='button-nav'>Entrar Como Administrador</button>
+     <Link to="/login" className='link-nav'>Entrar Como Administrador</Link>
      </>
      )
 

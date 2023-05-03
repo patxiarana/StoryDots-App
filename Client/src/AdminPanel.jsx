@@ -1,9 +1,31 @@
 import './Card.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {useGetProductQuery, useDeleteProductMutation} from './api/apiSlice';
 import { Modal } from './modal';
 import { EditModal } from './ModalEdit';
+import {  useNavigate } from 'react-router-dom'
 function AdminPanel() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+		const loggedUserJSON = window.localStorage.getItem('token')
+		if (!loggedUserJSON) {
+			navigate("/")
+		}
+	}, [navigate])
+
+
+  const handleLogout = e => {
+        window.localStorage.removeItem('token')
+          window.location.reload();
+        navigate("/user/SignIn")
+        alert("cerraste sesion")
+          
+      }
+
+
+
+
 
 /// Modal Window init
 const [show, setShow] = useState(false)
@@ -51,7 +73,7 @@ if (data) {
   return ( 
     <React.Fragment>
     <nav className='nav'>
-      <button>Cerrar Sesion</button>
+      <button onClick={handleLogout}>Cerrar Sesion</button>
       <button onClick={() => setShow(true)}>Cargar producto</button>
       <Modal onClose={() => setShow(false) } show={show}/>
     </nav>

@@ -30,7 +30,7 @@ alert("Pructo Editado")
   <label htmlFor="precio">Precio:</label>
   <input type="number"   name='price' defaultValue={props.price}/>
 
-  <button type="submit">Cargar Producto</button>
+  <button type="submit">Editar</button>
 </form>
 )
 }
