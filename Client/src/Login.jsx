@@ -20,7 +20,7 @@ function Login() {
 
 			axios({
 				method: 'POST',
-				url: `http://localhost:3000/user/Signin`,
+				url: `https://patxi-arana-storydots.fly.dev/user/Signin`,
 				data: {
 					email: email,
 					password: password,
@@ -47,7 +47,7 @@ function Login() {
 
 
   return (
-    <form onSubmit={"return false"}>
+    <form onSubmit={"return false"}  className='login-form'>
       <h2>Iniciar Sesion</h2>
       <div className="form-group">
         <label htmlFor="email">Email</label>

@@ -1,0 +1,21 @@
+{
+  "name": "storydots-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd Api node src/index.js,"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patxiarana/StoryDots-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patxiarana/StoryDots-App/issues"
+  },
+  "homepage": "https://github.com/patxiarana/StoryDots-App#readme"
+}

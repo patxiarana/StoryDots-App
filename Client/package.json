@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start-client" :"react-scripts start",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && (cd../Api && npm install)",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "back": "json-server --watch ./db/product.json --port 3000"
